@@ -1,23 +1,25 @@
 <?php
 session_start();
-var_dump($_SESSION); // For debugging
-
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit']))
+{
     $name = $_POST['name'];
     $email = $_POST['email'];
 
     $_SESSION['name'] = $name;
     $_SESSION['email'] = $email;
- 
+
+    header("Location: qe3.php");
+    exit();
 }
 ?>
 <html>
 <body>
-    <form method="POST" action="qe3.php">
+    <h2>FORM LOGIN</h2>
+    <form method="POST">
         Name:
-        <input type="text" name="name" required/><br>
+        <input type="text" name="name" /><br>
         Email:
-        <input type="email" name="email" required/><br>
+        <input type="email" name="email" /><br>
         <input type="submit" name="submit"/>
     </form>
 </body>
