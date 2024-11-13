@@ -1,9 +1,7 @@
 <?php
-if(isset($_COOKIE['name']))
-{
-	echo "welcome".$_COOKIE['name'];
+if (isset($_COOKIE['username'])) {
+    echo "Welcome, " . $_COOKIE['username'] . "!";
+} else {
+    echo "Please log in to continue.";
 }
-else
-{
-	echo "login Again";
-}
+?>
