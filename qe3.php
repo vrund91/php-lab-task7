@@ -1,14 +1,10 @@
 <?php
 session_start();
-var_dump($_SESSION); 
 
 if (!isset($_SESSION['name']) || !isset($_SESSION['email'])) {
-    echo "You are not logged in.";
-    exit;	
+    header("Location: q3.php");
+    exit();	
 }
-
-$name = $_SESSION['name'];
-$email = $_SESSION['email'];
 ?>
 
 <html>
@@ -16,8 +12,10 @@ $email = $_SESSION['email'];
     <title>Secure Page</title>
 </head>
 <body>
-    <h2>Welcome</h2>
-    <p>Welcome <?php echo ($name); ?>!</p>
-    <p>Your email address is: <?php echo ($email); ?></p>
+    <h2>secure page</h2>
+    <p>Welcome, <?php echo $_SESSION['name']; ?>!</p>
+    <p>Your email address is: <?php echo $_SESSION['email']; ?></p>
+
+    <a href="q3.php">Logout</a>
 </body>
 </html>
